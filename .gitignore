@@ -28,6 +28,10 @@ key.jks
 .DS_Store
 Thumbs.db
 
+# Generated code (با build_runner بازتولید می‌شود)
+*.g.dart
+*.freezed.dart
+
 # Secrets (کلیدهای تپسل/بازارپرداخت/پوشه هرگز کامیت نشوند)
 **/secrets.dart
 .env

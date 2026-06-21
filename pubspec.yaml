@@ -24,7 +24,7 @@ dependencies:
 
   # تاریخِ شمسی — ADR-0005
   shamsi_date: ^1.0.4
-  intl: ^0.19.0
+  intl: ^0.20.2          # هم‌خط با پینِ flutter_localizations در SDK
 
   # نمودارها (تمایزِ محصول)
   fl_chart: ^0.66.2

@@ -104,6 +104,6 @@ khoshhesab/
 - ADR-0002..0005 قفل شدند (state=Riverpod، داده=drift/SQLite، پول=ریالِ صحیح/Money، تاریخ=میلادیِ‌ذخیره/شمسیِ‌نمایش) + نامِ «خوش‌حساب». ثبت در [`docs/decisions/DECISION_LOG.md`](docs/decisions/DECISION_LOG.md).
 - **walking skeleton** نوشته شد: `pubspec.yaml` + `lib/` لایه‌ای (core/domain/data/application/presentation) + تست‌های Money/شمسی. راهِ عمودی: ثبتِ تراکنش → drift → لیست + ماندهٔ کل (شمسی/فارسی).
 
-> ⚠️ **گِیتِ فعلی:** Flutter SDK روی این سیستم **نصب نیست**؛ پس کد هنوز کامپایل/اجرا **نشده**. مسیرِ دقیقِ راه‌اندازی: [`docs/DEV_SETUP.md`](docs/DEV_SETUP.md).
+> ✅ **وارسی شد:** Flutter نصب شد (`C:\Users\Public\flutter`، بدونِ‌فاصله)؛ `pub get` + `build_runner` + `flutter analyze` (بدونِ ایراد) + `flutter test` (**۸/۸ سبز**) موفق. برای ساختِ APK، نصبِ Android SDK لازم است. راهنما: [`docs/DEV_SETUP.md`](docs/DEV_SETUP.md).
 
 **قدم بعدی (دورِ ۲، بعد از نصبِ SDK):** اجرای واقعی + `flutter analyze` → نرمال‌سازیِ `categories` → datePickerِ شمسی → صفحهٔ گزارش/نمودار با `fl_chart` → پشتیبان‌گیری.

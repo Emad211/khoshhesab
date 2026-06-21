@@ -1,6 +1,8 @@
 # راه‌اندازیِ توسعه — خوش‌حساب
 
-> **وضعیتِ مهم:** اسکلتِ کد نوشته شده اما **Flutter SDK روی این سیستم نصب نیست**؛ پس کد **هنوز کامپایل/اجرا نشده و وارسی‌نشده** است. این فایل دقیقاً می‌گوید چطور زنده‌اش کنی. (Java 17 از قبل نصب است ✅؛ Flutter/Dart و Android SDK نیستند.)
+> **وضعیت:** ✅ Flutter نصب شد و کد **وارسی شد** — `pub get` + `build_runner` + `flutter analyze` (بدونِ ایراد) + `flutter test` (**۸/۸ سبز**). برای ساختِ APK روی اندروید هنوز به **Android SDK** نیاز است (Java 17 ✅).
+>
+> ⚠️ **مهم (درسِ آموخته):** Flutter را در مسیرِ **بدونِ فاصله** نصب کن (این پروژه: `C:\Users\Public\flutter`). مسیرِ دارای فاصله مثل `C:\Users\Emad Karimi\flutter` باعثِ شکستِ ساختِ **native-assets** (`sqlite3`) هنگامِ `flutter test`/دسکتاپ می‌شود.
 
 ## ۱) نصبِ پیش‌نیازها
 - **Flutter SDK** (کانال stable): <https://docs.flutter.dev/get-started/install/windows> — سپس `flutter\bin` را به PATH اضافه کن.
