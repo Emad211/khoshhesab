@@ -23,7 +23,7 @@
 - **الگوی Repository:** ریپازیتوریِ `domain` (اینترفیسِ خالص) از drift بی‌خبر است؛ پیاده‌سازیِ `data` نگاشتِ ردیفِ drift ↔ مدلِ دامنه را انجام می‌دهد. **هیچ SQL خارج از `data`/`db` نیست** (اجبارِ معماری، ADR-0001 §۵).
 - **مهاجرت:** `schemaVersion` + `MigrationStrategy` فقط-additive (افزودنِ جدول/ستون؛ هرگز حذف/تغییرِ مخرب)؛ روی **کپیِ دیتابیس** تست می‌شود.
 - **پشتیبان‌گیری:** کپیِ فایلِ `.sqlite` یا خروجیِ JSON؛ بازیابی با جایگزینیِ امن.
-- **مدلِ هدف (نرمال):** `transactions` + `categories` (FK). در **walking skeletonِ فاز ۱** برای کمینه‌کردنِ ریسک، دسته به‌صورتِ ستونِ متنی روی `transactions` است؛ **نرمال‌سازی به جدولِ `categories` نخستین کارِ فاز ۲ است** (ثبت‌شده در ROADMAP).
+- **مدلِ هدف (نرمال):** `transactions` + `categories` (FK). در **walking skeletonِ فاز ۱** برای کمینه‌کردنِ ریسک، دسته به‌صورتِ ستونِ متنی روی `transactions` بود. — ✅ **نرمال‌سازی در دورِ ۲ انجام شد:** جدولِ `categories` + ستونِ nullable `category_id` (FK، `ON DELETE SET NULL`)؛ ستونِ متنی به‌عنوان snapshot/fallback حفظ شد؛ تجمیعِ گزارش بر **ماهِ شمسی با بازهٔ میلادیِ پارامتری** (نه `strftime`). جزئیات: [ADR-0006](0006-reporting-and-charts.md).
 
 ## Consequences
 

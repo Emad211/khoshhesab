@@ -100,10 +100,10 @@ khoshhesab/
 
 ## وضعیت فعلی
 
-**فاز ۱ — اسکلت نوشته شد (دورِ ۱ انجام شد).**
-- ADR-0002..0005 قفل شدند (state=Riverpod، داده=drift/SQLite، پول=ریالِ صحیح/Money، تاریخ=میلادیِ‌ذخیره/شمسیِ‌نمایش) + نامِ «خوش‌حساب». ثبت در [`docs/decisions/DECISION_LOG.md`](docs/decisions/DECISION_LOG.md).
-- **walking skeleton** نوشته شد: `pubspec.yaml` + `lib/` لایه‌ای (core/domain/data/application/presentation) + تست‌های Money/شمسی. راهِ عمودی: ثبتِ تراکنش → drift → لیست + ماندهٔ کل (شمسی/فارسی).
+**فاز ۲ — دورِ ۲ انجام شد ✅ (دسته‌ها + تاریخِ شمسی + گزارش/نمودار).**
+- **دورِ ۱:** ADR-0002..0005 + نامِ «خوش‌حساب» + walking skeleton.
+- **دورِ ۲ (ADR-0006):** جدولِ نرمالِ `categories` + مهاجرتِ additive ۱→۲؛ انتخابگرِ تاریخِ شمسی در فرمِ ثبت؛ `MainShell`ِ دو-تبه (خانه/گزارش) + صفحهٔ گزارش با **نمودارِ دایره‌ای** (`fl_chart`) و تجمیعِ ماهِ شمسی. ثبت در [`docs/decisions/DECISION_LOG.md`](docs/decisions/DECISION_LOG.md).
 
-> ✅ **وارسی شد:** Flutter نصب شد (`C:\Users\Public\flutter`، بدونِ‌فاصله)؛ `pub get` + `build_runner` + `flutter analyze` (بدونِ ایراد) + `flutter test` (**۸/۸ سبز**) موفق. برای ساختِ APK، نصبِ Android SDK لازم است. راهنما: [`docs/DEV_SETUP.md`](docs/DEV_SETUP.md).
+> ✅ **وارسی شد:** Flutter (`C:\Users\Public\flutter`، بدونِ‌فاصله) + `build_runner` + `flutter analyze` (بدونِ ایراد) + `flutter test` (**۱۶/۱۶ سبز**، شاملِ تجمیعِ دیتابیس و مرزِ ماهِ شمسی). راهنمای اجرا/ساختِ APK: [`docs/DEV_SETUP.md`](docs/DEV_SETUP.md).
 
-**قدم بعدی (دورِ ۲، بعد از نصبِ SDK):** اجرای واقعی + `flutter analyze` → نرمال‌سازیِ `categories` → datePickerِ شمسی → صفحهٔ گزارش/نمودار با `fl_chart` → پشتیبان‌گیری.
+**قدم بعدی (دورِ ۳):** نمودارِ روند + صفحهٔ مدیریتِ دسته‌ها + ویرایش/حذفِ تراکنش + پشتیبان‌گیری؛ سپس نصبِ Android SDK و ساختِ APK برای کافه‌بازار.

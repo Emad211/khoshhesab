@@ -5,9 +5,8 @@ import '../application/providers.dart';
 import '../core/fa.dart';
 import '../core/money.dart';
 import '../domain/transaction.dart';
-import 'add_transaction_page.dart';
 
-/// صفحهٔ اصلی: ماندهٔ کل + لیستِ تراکنش‌ها + دکمهٔ ثبت (walking skeleton).
+/// تبِ «خانه»: ماندهٔ کل + لیستِ تراکنش‌ها. (FABِ ثبت در MainShell است.)
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
@@ -37,13 +36,6 @@ class HomePage extends ConsumerWidget {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => const AddTransactionPage()),
-        ),
-        icon: const Icon(Icons.add),
-        label: const Text('ثبت'),
-      ),
     );
   }
 }
@@ -59,10 +51,7 @@ class _BalanceCard extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          const Text(
-            'ماندهٔ کل',
-            style: TextStyle(fontSize: 14, color: Colors.grey),
-          ),
+          const Text('ماندهٔ کل', style: TextStyle(fontSize: 14, color: Colors.grey)),
           const SizedBox(height: 8),
           Text(
             formatToman(balance),

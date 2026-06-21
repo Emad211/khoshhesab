@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import '../presentation/home_page.dart';
+import '../presentation/main_shell.dart';
 
 /// ریشهٔ اپ: RTL کامل + locale فارسی + تمِ Material 3 (ADR-0005).
-/// (فونتِ وزیرمتن در فازِ پولیش افزوده می‌شود؛ فعلاً فونتِ پیش‌فرض.)
 class KhoshHesabApp extends StatelessWidget {
   const KhoshHesabApp({super.key});
 
@@ -25,7 +24,7 @@ class KhoshHesabApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: const HomePage(),
+      home: const MainShell(),
     );
   }
 }

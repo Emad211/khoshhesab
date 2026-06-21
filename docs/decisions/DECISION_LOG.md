@@ -48,4 +48,17 @@
 
 > **یادداشتِ فرایندی (دورِ ۱):** شورا از طریقِ یک Workflowِ چندایجنتی (پیشنهاد→چالشِ متخاصم) اجرا شد؛ به‌دلیلِ یک خطای پیکربندی در گامِ نگارشِ پس‌زمینه، ADRهای نهایی توسطِ کاندوکتور بر اساسِ همان مذاکره و پیش‌فرض‌های `CLAUDE.md` نوشته شدند.
 >
-> **باز برای دورِ ۲:** نصبِ Flutter SDK و اجرای واقعیِ اسکلت؛ نرمال‌سازیِ `categories`؛ datePickerِ شمسی؛ صفحهٔ گزارش/نمودار.
+---
+
+## ۰۰۶ — نرمال‌سازیِ دسته‌ها + انتخابگرِ تاریخِ شمسی + گزارش/نمودار (دورِ ۲) — ۱۴۰۵/۰۳/۳۱
+- **زمینه:** اسکلتِ فاز ۱ سبز شد. دورِ ۲: نرمال‌سازیِ دستهٔ متنی به جدولِ `categories` با مهاجرتِ additive؛ انتخابگرِ تاریخِ شمسی؛ صفحهٔ گزارش/نمودار با `fl_chart`.
+- **گزینه‌ها:** تجمیعِ SQL (drift) ↔ in-memory؛ `kind` روی categories: `NOT NULL`+`UNIQUE(name,kind)` ↔ nullable؛ `ChoiceChip` ↔ Dropdown؛ یک نمودار ↔ دو.
+- **تصمیم:** تجمیعِ `SUM`/`GROUP BY` در **SQL** (هم‌خط با ADR-0003)، با value-objectِ `JalaliMonth` و قاعدهٔ «بازهٔ میلادیِ پارامتری، نه `strftime`»؛ `kind`=`NOT NULL`+`UNIQUE`؛ `ChoiceChip`؛ فقط نمودارِ دایره‌ایِ هزینه (روند defer). مهاجرت ۱→۲ additive/idempotent در `onCreate`+`onUpgrade`، backfillِ غیرمخرب، `PRAGMA foreign_keys=ON`.
+- **حاضرانِ حلقه:** `orchestrator`، `data-architect`، `ui-ux-designer`، `principal-architect`؛ کیفیت: `test-engineer` + `qa-tester`.
+- **پیامدها:** جدولِ `categories` + `categoryId`(nullable,FK,SET NULL)، providerهای دسته/گزارش، `MainShell`ِ دو-تبه، `report_page` با pie، انتخابگرِ تاریخِ شمسی. خارج‌از‌حوزه: حذفِ ستونِ متنی، تجمیعِ in-memory، صفحهٔ مدیریتِ دسته، نمودارِ دوم.
+- **وارسی:** `build_runner` + `analyze` (پاک) + **۱۶/۱۶ تست** (شاملِ seed، تجمیعِ ماهِ شمسی، فیلترِ خارج‌از‌ماه، مرزِ `JalaliMonth`).
+- **ADR مرتبط:** [`adr/0003-data-layer.md`](../adr/0003-data-layer.md) (به‌روز)، [`adr/0006-reporting-and-charts.md`](../adr/0006-reporting-and-charts.md) (جدید).
+
+---
+
+> **باز برای دورِ ۳:** نمودارِ روندِ ۶ماهه؛ صفحهٔ مدیریت/ویرایشِ دسته‌ها؛ ویرایش/حذفِ تراکنش؛ پشتیبان‌گیری/بازیابیِ فایلی؛ سپس آماده‌سازیِ APK (Android SDK).

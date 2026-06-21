@@ -8,7 +8,13 @@ class Tx {
   final int? id;
   final Money amount;
   final TxKind kind;
+
+  /// منبعِ کانونیِ دسته (ADR-0006). برای رکوردهای بدونِ دسته null است.
+  final int? categoryId;
+
+  /// snapshot/fallbackِ نامِ دسته برای نمایشِ سریع و سازگاریِ عقب‌رو.
   final String? category;
+
   final String? note;
   final DateTime occurredAt;
 
@@ -16,6 +22,7 @@ class Tx {
     this.id,
     required this.amount,
     required this.kind,
+    this.categoryId,
     this.category,
     this.note,
     required this.occurredAt,
