@@ -1,0 +1,33 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+*.iml
+
+# Android
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/local.properties
+**/android/key.properties
+*.keystore
+*.jks
+key.jks
+*.apk
+*.aab
+
+# IDE
+.idea/
+.vscode/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets (کلیدهای تپسل/بازارپرداخت/پوشه هرگز کامیت نشوند)
+**/secrets.dart
+.env
